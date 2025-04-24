@@ -10,7 +10,8 @@ app = Flask(__name__,
             static_url_path='/', 
             static_folder='web')
 
-ort_session = onnxruntime.InferenceSession("efficientnet-lite4-11.onnx")
+ort_session = onnxruntime.InferenceSession("efficientnet-lite4-11-int8.onnx")
+print("💡 ONNX-Modell geladen:", ort_session.get_modelmeta().graph_name)
 
 # load the labels text file
 labels = json.load(open("labels_map.txt", "r"))
